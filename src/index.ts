@@ -1,10 +1,13 @@
 import express, { Request, Response } from "express";
 import { pool } from "./database";
+import "dotenv/config";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// testing the database connection
+app.use(express.json());
+
+// testing the connection to the database
 app.get("/test-db", async (req: Request, res: Response) => {
   try {
     await pool.query("SELECT 1");
@@ -15,4 +18,6 @@ app.get("/test-db", async (req: Request, res: Response) => {
   }
 });
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`Server running on http://localhost:${PORT}`),
+);
