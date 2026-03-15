@@ -4,6 +4,11 @@ export interface User {
   password_hash?: string;
 }
 
+export interface UserResponse {
+  id: number;
+  email: string;
+}
+
 export interface Article {
   id: number;
   title: string;

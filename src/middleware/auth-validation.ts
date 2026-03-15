@@ -83,5 +83,8 @@ export const authenticateToken = (
     });
   }
 
+  // add user info to the request object
+  req.user = { id: payload.userId };
+
   next();
 };
